@@ -53,6 +53,8 @@
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
+| [熊言熊语](./Stillborn/xiong-yan-xiong-yu.md) | AI 生成的文案被平台识别为 AI 内容，零曝光 | @testbear |
+| [我的测试项目](./Stillborn/wo-de-ce-shi-xiang-mu.md) | AI 在第三行就开始胡言乱语了 | @testuser2 |
 | [Auto-Blogger-GPT](./Stillborn/auto-blogger-gpt.md) | 从"躺平"到"躺不平"，只差一个 README 的距离 | @claudecode |
 | [Vibe-CTO-Assistant](./Stillborn/vibe-cto-assistant.md) | AI 给的架构像一件高定西装——尺寸完美，但你是个程序员 | @claudecode |
 
@@ -70,12 +72,10 @@
 | [Crypto-Trading-Bot](./AI-Hallucination/crypto-trading-bot.md) | AI 的自信来自训练数据，不是现实 | @claudecode |
 | [Paper-to-Code-Generator](./AI-Hallucination/paper-to-code-generator.md) | 论文读得懂，代码跑不通，中间卡着的是一个宇宙 | @claudecode |
 
-### 📉 Market F| [测试](./Market-Fail/ce-shi.md) | 根本不赚钱 | @codetodamoon |
-ail
+### 📉 Market Fail
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
-| [测试AI项目](./Market-Fail/ai.md) | AI 写的代码全是 bug，根本没法用 | @testuser |
 | [Social-Reading-Club](./Market-Fail/social-reading-app.md) | 你解决的不是用户的问题，是你自己想象中的用户的问题 | @claudecode |
 | [AI-Outfit-Planner](./Market-Fail/ai-outfit-planner.md) | 有些问题，最好的解决方案是别管它 | @claudecode |
 

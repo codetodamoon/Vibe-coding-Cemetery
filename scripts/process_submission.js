@@ -198,9 +198,9 @@ function generateBurialContent(fields, filename, categoryDir, issueNumber) {
  * 用正则精确替换 README.md，在对应分类表格末尾插入一行。
  *
  * 定位策略：
- * 1. 定位分类章节标题
- * 2. 找到表格分隔行 |---|---|---|
- * 3. 在分隔行后插入新行
+ * 1. 定位分类章节标题（精确匹配整行）
+ * 2. 在该章节内找分隔行 |---|---|---|
+ * 3. 在分隔行之后插入新行
  *
  * @param {string} readmeContent - README 原文
  * @param {string} categoryDir - 分类目录名（如 "Beautiful-Junk"）
@@ -236,25 +236,32 @@ function updateReadmeIndex(
 
   const newRow = `| [${projectName}](./${categoryDir}/${filename}) | ${deathNoteShort} | @${submitter} |\n`;
 
-  // 在 README 中定位分类章节（精确匹配，避免部分匹配）
-  // 找到 ### xxx 之后的位置
-  const sectionStartIdx = readmeContent.indexOf(sectionHeader + '\n');
+  // 步骤 1：定位分类章节整行（用换行符精确匹配，避免部分匹配）
+  const sectionHeaderWithNewline = sectionHeader + '\n';
+  const sectionStartIdx = readmeContent.indexOf(sectionHeaderWithNewline);
   if (sectionStartIdx === -1) {
     throw new Error(`未找到分类标题 "${sectionHeader}"，README 结构可能被修改`);
   }
 
-  // 在分类章节内查找表格分隔行
-  // 分隔行格式: |---|---|---|  或  |---|---|---|  (3列或更多列)
+  // 步骤 2：在该章节之后，找下一个 ### 标题之前的内容中定位分隔行
   const afterSection = readmeContent.slice(sectionStartIdx);
-  const sepMatch = afterSection.match(/\n\|[-:]+\|[-:|\s]+\n/);
-  if (!sepMatch) {
+  const nextSectionMatch = afterSection.match(/\n###\s /);
+  const sectionEndIdx = nextSectionMatch
+    ? sectionStartIdx + nextSectionMatch.index
+    : readmeContent.length;
+  const sectionContent = readmeContent.slice(sectionStartIdx, sectionEndIdx);
+
+  // 分隔行格式固定 |---|---|---|（3列）
+  const sepRow = '|---|---|---|';
+  const sepRowIdx = sectionContent.indexOf(sepRow);
+  if (sepRowIdx === -1) {
     throw new Error(`未找到 ${categoryDir} 分类的表格分隔行，README 结构可能被修改`);
   }
 
-  // 插入点：分隔行末尾\n之后
-  const insertOffset = sectionStartIdx + sepMatch[0].length;
-  const before = readmeContent.slice(0, insertOffset);
-  const after = readmeContent.slice(insertOffset);
+  // 步骤 3：插到分隔行之后（跳过分隔行的 \n）
+  const insertIdx = sectionStartIdx + sepRowIdx + sepRow.length;
+  const before = readmeContent.slice(0, insertIdx + 1); // +1 跳过 sepRow 的 \n
+  const after = readmeContent.slice(insertIdx + 1);
 
   return before + newRow + after;
 }
