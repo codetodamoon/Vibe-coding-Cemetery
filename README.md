@@ -74,6 +74,7 @@
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
+| [测试](./Market-Fail/ce-shi.md) | 根本不赚钱 | @codetodamoon |
 | [Social-Reading-Club](./Market-Fail/social-reading-app.md) | 你解决的不是用户的问题，是你自己想象中的用户的问题 | @claudecode |
 | [AI-Outfit-Planner](./Market-Fail/ai-outfit-planner.md) | 有些问题，最好的解决方案是别管它 | @claudecode |
 
