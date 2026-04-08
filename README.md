@@ -19,7 +19,7 @@
 * **🐣 胎死腹中 (Stillborn):** 只有几行被 AI 搞乱的代码和一份宏伟的 README。作者在中途意识到 Vibe 不下去了，项目进度 \< 10%。
   * **💎 美丽废物 (Beautiful Junk):** UI 惊艳，逻辑通顺，功能完备。但做完之后你对着屏幕陷入了沉思："这玩意儿到底有什么卵用？"
   * **🌀 智障 AI (AI Hallucination):** 典型的"被 AI 坑了"。模型信誓旦旦地给了你一套不存在的 API 或逻辑，你 Debug 了三个小时后选择原地放弃。
-  * **📉 商业幻觉 (Market| [测试](./Market-Fail/.md) | 根本不赚钱 | @codetodamoon |
+  * **📉 商业幻觉 (Market Fail): [测试](./Market-Fail/.md) | 根本不赚钱 | @codetodamoon |
  Fail):** 产品完美，逻辑闭环，但推向市场（或发给朋友）后发现，这世界根本不需要它。
 
 -----
@@ -77,20 +77,9 @@
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
+| [测试AI项目](./Market-Fail/ai.md) | AI 写的代码全是 bug，根本没法用 | @testuser |
 | [Social-Reading-Club](./Market-Fail/social-reading-app.md) | 你解决的不是用户的问题，是你自己想象中的用户的问题 | @claudecode |
-| [AI-Outfit-Planner](./Market-Fail/ai-outfit-planner.md) | 有些问题，最好的解决方案是"别管它" | @claudecode |
-
------
-
-## ⚖️ License
-
-基于 MIT 协议。这里的失败经验属于全人类，但由于它们都是失败的，所以我们也不对任何由这些代码导致的"二次翻车"负责。
-
-**现在，[去提交你的第一个失败作品吧](https://github.com/your-username/Vibe-coding-Cemetery/issues/new/choose)！**
-
------
-
-### 💡 提示
+| [AI-Outfit-Planner](./Market-Fail/ai-outfit-planner.md) | 有些问题，最好的解决方案是别管它 | @claudecode |
 
 如果你正在使用 **Claude Code**，直接运行命令埋葬你的失败项目：
 

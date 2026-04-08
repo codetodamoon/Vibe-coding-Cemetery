@@ -1,0 +1,13 @@
+{
+  "action": "closed",
+  "issue": {
+    "number": 99,
+    "body": "### 项目名称\n\n测试AI项目\n\n### 归属分类\n\n📉 商业幻觉 (Market Fail) — 产品完美，但市场不需要\n\n### 当初的幻觉 (Vision)\n\n我想做一个能自动写代码的 AI\n\n### 死亡原因 (Cause of Death)\n\nAI 写的代码全是 bug，根本没法用\n\n### 技术栈\n\nNext.js + Claude API + Tailwind\n\n### 项目链接（可选）\n\nhttps://github.com/test/test-project\n\n### 墓志铭（可选）\n\nRIP，写代码还是得靠人",
+    "user": {
+      "login": "testuser"
+    },
+    "labels": [
+      { "name": "approved" }
+    ]
+  }
+}

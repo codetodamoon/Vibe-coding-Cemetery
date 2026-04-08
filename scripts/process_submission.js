@@ -106,14 +106,26 @@ function mapCategory(categoryOption) {
 
 /**
  * 从项目名称生成文件名 slug。
+ * 支持中文字符：
+ * "测试" → "ce-shi.md"
+ * "测试AI项目" → "ce-shi-ai-xiang-mu.md"
  * "Vibe-Pet-GPT" → "vibe-pet-gpt.md"
- * "My Cool Project 2.0" → "my-cool-project-2-0.md"
  */
 function generateFilename(projectName) {
-  return projectName
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '') + '.md';
+  // 使用 pinyin 库将中文转为拼音（fallback 到字符码）
+  let slug;
+  try {
+    const pinyin = require('pinyin').default;
+    const pinyins = pinyin(projectName, { style: pinyin.STYLE_NORMAL });
+    slug = pinyins.map(p => p[0]).join('-');
+  } catch {
+    // Fallback: 保留 Unicode 字母数字，替换其他字符为 -
+    slug = projectName
+      .replace(/[^\w]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+  // 最后再规范化一遍（移除连续 - 和首尾 -）
+  return slug.toLowerCase().replace(/-+/g, '-').replace(/^-+|-+$/g, '') + '.md';
 }
 
 /**
@@ -186,9 +198,9 @@ function generateBurialContent(fields, filename, categoryDir, issueNumber) {
  * 用正则精确替换 README.md，在对应分类表格末尾插入一行。
  *
  * 定位策略：
- * 1. 先定位到 "## 📜 墓碑列表" 锚点（避免与分类描述中的标题混淆）
- * 2. 在锚点之后查找分类章节标题
- * 3. 在该章节内找到表格分隔行 |---|---|---|，在其后插入新行
+ * 1. 定位分类章节标题
+ * 2. 找到表格分隔行 |---|---|---|
+ * 3. 在分隔行后插入新行
  *
  * @param {string} readmeContent - README 原文
  * @param {string} categoryDir - 分类目录名（如 "Beautiful-Junk"）
@@ -224,30 +236,23 @@ function updateReadmeIndex(
 
   const newRow = `| [${projectName}](./${categoryDir}/${filename}) | ${deathNoteShort} | @${submitter} |\n`;
 
-  // 锚点：墓碑列表章节开始
-  const ANCHOR = '## 📜 墓碑列表 (The Monuments)';
-  const anchorIdx = readmeContent.indexOf(ANCHOR);
-  if (anchorIdx === -1) {
-    throw new Error('未找到 "## 📜 墓碑列表" 锚点，README 结构可能被修改');
-  }
-
-  // 在锚点之后查找分类标题
-  const afterAnchor = readmeContent.slice(anchorIdx);
-  const headerIdx = afterAnchor.indexOf(sectionHeader);
-  if (headerIdx === -1) {
+  // 在 README 中定位分类章节（精确匹配，避免部分匹配）
+  // 找到 ### xxx 之后的位置
+  const sectionStartIdx = readmeContent.indexOf(sectionHeader + '\n');
+  if (sectionStartIdx === -1) {
     throw new Error(`未找到分类标题 "${sectionHeader}"，README 结构可能被修改`);
   }
 
   // 在分类章节内查找表格分隔行
-  const sectionContent = afterAnchor.slice(headerIdx + sectionHeader.length);
-  const sepPattern = /\n\| 项目名称 \|.*?\n\|---+\|[---|\s]+\n/;
-  const sepMatch = sectionContent.match(sepPattern);
+  // 分隔行格式: |---|---|---|  或  |---|---|---|  (3列或更多列)
+  const afterSection = readmeContent.slice(sectionStartIdx);
+  const sepMatch = afterSection.match(/\n\|[-:]+\|[-:|\s]+\n/);
   if (!sepMatch) {
     throw new Error(`未找到 ${categoryDir} 分类的表格分隔行，README 结构可能被修改`);
   }
 
   // 插入点：分隔行末尾\n之后
-  const insertOffset = headerIdx + sectionHeader.length + sepMatch[0].length;
+  const insertOffset = sectionStartIdx + sepMatch[0].length;
   const before = readmeContent.slice(0, insertOffset);
   const after = readmeContent.slice(insertOffset);
 
