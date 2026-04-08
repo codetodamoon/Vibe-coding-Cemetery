@@ -14,13 +14,10 @@
 
 我们根据项目的"死因"设置了四个主要墓区：
 
-  | [Vibe-Pet-GPT](./Beautiful-Junk/vibe-pet-gpt.md) | 猫完全不理 AI，测试了 1000 次，只有 3 次识别成功。 | @test-user |
-| [Test-Approved-Project](./Beautiful-Junk/test-approved-project.md) | AI 写出来的邮件看起来很专业，但每次都把收件人气笑了，内容完全不通顺。测试了 50 封，全部社死。 | @test-user |
 * **🐣 胎死腹中 (Stillborn):** 只有几行被 AI 搞乱的代码和一份宏伟的 README。作者在中途意识到 Vibe 不下去了，项目进度 \< 10%。
-  * **💎 美丽废物 (Beautiful Junk):** UI 惊艳，逻辑通顺，功能完备。但做完之后你对着屏幕陷入了沉思："这玩意儿到底有什么卵用？"
-  * **🌀 智障 AI (AI Hallucination):** 典型的"被 AI 坑了"。模型信誓旦旦地给了你一套不存在的 API 或逻辑，你 Debug 了三个小时后选择原地放弃。
-  * **📉 商业幻觉 (Market Fail): [测试](./Market-Fail/.md) | 根本不赚钱 | @codetodamoon |
- Fail):** 产品完美，逻辑闭环，但推向市场（或发给朋友）后发现，这世界根本不需要它。
+* **💎 美丽废物 (Beautiful Junk):** UI 惊艳，逻辑通顺，功能完备。但做完之后你对着屏幕陷入了沉思："这玩意儿到底有什么卵用？"
+* **🌀 智障 AI (AI Hallucination):** 典型的"被 AI 坑了"。模型信誓旦旦地给了你一套不存在的 API 或逻辑，你 Debug 了三个小时后选择原地放弃。
+* **📉 商业幻觉 (Market Fail):** 产品完美，逻辑闭环，但推向市场（或发给朋友）后发现，这世界根本不需要它。
 
 -----
 
