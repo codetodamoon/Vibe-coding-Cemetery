@@ -1,0 +1,6 @@
+.history/
+
+# Local test artifacts
+act-issue-closed-*.json
+.env.test
+node_modules/

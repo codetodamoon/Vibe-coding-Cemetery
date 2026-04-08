@@ -1,0 +1,11 @@
+{
+  "name": "vibe-coding-cemetery",
+  "version": "1.0.0",
+  "description": "A public archive of failed vibe-coding projects",
+  "scripts": {
+    "start": "node scripts/process_submission.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

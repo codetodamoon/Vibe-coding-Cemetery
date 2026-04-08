@@ -1,0 +1,74 @@
+name: Bury My Project
+description: 埋葬一个失败的 vibe-coding 项目
+title: "🪦 Bury: "
+labels: ["pending"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🪦 尸检报告
+
+        请填写以下信息来埋葬你的失败项目。maintainer 审核通过后会关闭此 Issue，系统自动生成墓碑。
+
+  - type: input
+    id: project-name
+    attributes:
+      label: 项目名称
+      description: 你的项目叫什么名字？
+      placeholder: "例如: Vibe-Pet-GPT"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 归属分类
+      description: 根据项目的死因选择分类
+      options:
+        - 🐣 胎死腹中 (Stillborn) — 项目进度 < 10%，只有宏伟的 README
+        - 💎 美丽废物 (Beautiful Junk) — 代码完整，但没人用
+        - 🌀 智障 AI (AI Hallucination) — 被 AI 的幻觉 API/逻辑坑了
+        - 📉 商业幻觉 (Market Fail) — 产品完美，但市场不需要
+    validations:
+      required: true
+
+  - type: textarea
+    id: vision
+    attributes:
+      label: 当初的幻觉 (Vision)
+      description: 你当初想做什么？是什么让你兴奋到想用 Vibe Coding 实现它？
+      placeholder: "我想做一个能跟猫说话的 AI..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: death-cause
+    attributes:
+      label: 死亡原因 (Cause of Death)
+      description: 这个项目是怎么死的？详细的尸检报告
+      placeholder: "猫根本不理 AI，模型还幻觉出了一个不存在的 API..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: tech-stack
+    attributes:
+      label: 技术栈
+      description: 你用了什么技术/AI 工具？当时主要的模型是什么？
+      placeholder: "Next.js + Claude API + Tailwind..."
+    validations:
+      required: true
+
+  - type: input
+    id: project-link
+    attributes:
+      label: 项目链接（可选）
+      description: 原始仓库的 URL
+      placeholder: "https://github.com/your-username/your-project"
+
+  - type: textarea
+    id: epitaph
+    attributes:
+      label: 墓志铭（可选）
+      description: 一句幽默或深刻的总结，让这个墓碑更有灵魂
+      placeholder: "RIP，猫永远是老板"

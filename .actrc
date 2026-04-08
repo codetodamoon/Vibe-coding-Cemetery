@@ -1,0 +1,2 @@
+-P ubuntu-latest=ghcr.io/catthehacker/ubuntu:full
+--container-daemon-socket /Users/lixuejiang/.orbstack/run/docker.sock
