@@ -53,8 +53,6 @@
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
-| [熊言熊语](./Stillborn/xiong-yan-xiong-yu.md) | AI 生成的文案被平台识别为 AI 内容，零曝光 | @testbear |
-| [我的测试项目](./Stillborn/wo-de-ce-shi-xiang-mu.md) | AI 在第三行就开始胡言乱语了 | @testuser2 |
 | [Auto-Blogger-GPT](./Stillborn/auto-blogger-gpt.md) | 从"躺平"到"躺不平"，只差一个 README 的距离 | @claudecode |
 | [Vibe-CTO-Assistant](./Stillborn/vibe-cto-assistant.md) | AI 给的架构像一件高定西装——尺寸完美，但你是个程序员 | @claudecode |
 
