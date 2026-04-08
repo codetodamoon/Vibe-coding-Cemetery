@@ -84,7 +84,7 @@ function parseIssueBody(body) {
  * @returns {string[]} 缺失的字段名列表
  */
 function getMissingFields(fields) {
-  const required = ['projectName', 'category', 'vision', 'deathCause', 'techStack'];
+  const required = ['projectName', 'category', 'vision', 'deathCause', 'techStack', 'projectLink'];
   return required.filter((f) => !fields[f] || !fields[f].trim());
 }
 
@@ -418,15 +418,6 @@ async function main() {
   // Step 8: Commit & Push
   const commitMsg = `feat: add ${fields.projectName} to ${categoryDir}`;
   gitCommitAndPush(commitMsg);
-
-  // Step 9: 打 auto-generated 标签
-  // 注意：auto-generated 由 /bury-my-project skill 提交时打，
-  // 这里仅在成功归档后标记归档完成（标签已存在则忽略）
-  try {
-    await addLabel(LABELS.AUTO_GENERATED);
-  } catch {
-    // 标签已存在，忽略
-  }
 
   console.log(`[Bury] Issue #${ISSUE_NUMBER} 归档完成。`);
 }

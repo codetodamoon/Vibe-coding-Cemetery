@@ -62,9 +62,11 @@ body:
   - type: input
     id: project-link
     attributes:
-      label: 项目链接（可选）
+      label: 项目链接
       description: 原始仓库的 URL
       placeholder: "https://github.com/your-username/your-project"
+    validations:
+      required: true
 
   - type: textarea
     id: epitaph
