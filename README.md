@@ -70,7 +70,8 @@
 | [Crypto-Trading-Bot](./AI-Hallucination/crypto-trading-bot.md) | AI 的自信来自训练数据，不是现实 | @claudecode |
 | [Paper-to-Code-Generator](./AI-Hallucination/paper-to-code-generator.md) | 论文读得懂，代码跑不通，中间卡着的是一个宇宙 | @claudecode |
 
-### 📉 Market Fail
+### 📉 Market F| [测试](./Market-Fail/ce-shi.md) | 根本不赚钱 | @codetodamoon |
+ail
 
 | 项目名称 | 死亡笔记 | 提交人 |
 |---|---|---|
