@@ -11,6 +11,8 @@ concurrency:
 jobs:
   bury:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     # 仅当 Issue 带有 approved 标签时执行
     if: contains(github.event.issue.labels.*.name, 'approved')
