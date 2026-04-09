@@ -20,7 +20,7 @@ description: "输入一个 GitHub repo URL，自动分析该项目、生成符�
 
 ### Step 1: 分析目标仓库
 
-使用 Agent 工具（Explore subagent）克隆并分析目标仓库：
+使用 Agent 工具（Explore subagent）读取并分析目标仓库内容：
 
 - 读取 README.md — 了解项目愿景和功能描述
 - 读取主要源码文件（package.json、Cargo.toml、pyproject.toml 等）— 确定技术栈
@@ -38,25 +38,25 @@ description: "输入一个 GitHub repo URL，自动分析该项目、生成符�
 根据分析结果，生成符合 Issue 模板格式的内容：
 
 ```markdown
-## 项目名称
+### 项目名称
 {项目名}
 
-## 归属分类
+### 归属分类
 {分类名（下拉选项文字）}
 
-## 当初的幻觉 (Vision)
+### 当初的幻觉 (Vision)
 {一句话描述当初想做什么}
 
-## 死亡原因 (Cause of Death)
+### 死亡原因 (Cause of Death)
 {详细的尸检报告：失败原因、发现的问题、放弃的契机}
 
-## 技术栈
+### 技术栈
 {列出主要技术/AI 模型}
 
-## 项目链接（可选）
+### 项目链接
 {原始仓库 URL}
 
-## 墓志铭（可选）
+### 墓志铭（可选）
 {一句幽默或深刻的总结}
 ```
 
@@ -68,42 +68,41 @@ description: "输入一个 GitHub repo URL，自动分析该项目、生成符�
 
 ### Step 3: 提交 Issue
 
-用 `gh issue create` 在 Vibe-coding-Cemetery 仓库创建 Issue，同时打上 `auto-generated` 标签：
+用 `gh issue create` 在 Vibe-coding-Cemetery 仓库创建 Issue，同时打上 `auto-generated` 和 `pending` 标签：
 
 ```bash
 gh issue create \
-  --repo Vibe-coding-Cemetery \
+  --repo codetodamoon/Vibe-coding-Cemetery \
   --title "🪦 Bury: {项目名}" \
   --body "$(cat <<'EOF'
-## 项目名称
+### 项目名称
 {项目名}
 
-## 归属分类
+### 归属分类
 {分类名（下拉选项文字）}
 
-## 当初的幻觉 (Vision)
+### 当初的幻觉 (Vision)
 {愿景}
 
-## 死亡原因 (Cause of Death)
+### 死亡原因 (Cause of Death)
 {死亡笔记摘要}
 
-## 技术栈
+### 技术栈
 {技术栈}
 
-## 项目链接（可选）
+### 项目链接
 {原始仓库 URL}
 
-## 墓志铭（可选）
+### 墓志铭（可选）
 {墓志铭}
 
 ---
 *由 /bury-my-project 自动生成*
 EOF
 )" \
-  --label "auto-generated"
+  --label "auto-generated" \
+  --label "pending"
 ```
-
-> 注意：`--repo` 省略 owner 时默认使用当前 gh 登录账号的仓库。
 
 ## 注意事项
 
