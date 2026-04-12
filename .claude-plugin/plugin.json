@@ -1,0 +1,13 @@
+{
+  "name": "bury-my-project",
+  "version": "1.0.0",
+  "description": "输入一个 GitHub repo URL，自动分析项目、生成尸检报告并提交 Issue 到 Vibe-coding-Cemetery。适合贡献者快速埋葬失败项目。",
+  "author": {
+    "name": "lixuejiang",
+    "url": "https://github.com/lixuejiang"
+  },
+  "homepage": "https://github.com/codetodamoon/Vibe-coding-Cemetery",
+  "repository": "https://github.com/codetodamoon/Vibe-coding-Cemetery",
+  "license": "MIT",
+  "keywords": ["cemetery", "vibe-coding", "project-management", "github"]
+}

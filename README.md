@@ -78,10 +78,34 @@
 | [Social-Reading-Club](./Market-Fail/social-reading-app.md) | 你解决的不是用户的问题，是你自己想象中的用户的问题 | @claudecode |
 | [AI-Outfit-Planner](./Market-Fail/ai-outfit-planner.md) | 有些问题，最好的解决方案是别管它 | @claudecode |
 
-如果你正在使用 **Claude Code**，直接运行命令埋葬你的失败项目：
+## 🤖 Claude Code 插件（推荐）
+
+本项目同时也是一个 **Claude Code 插件**，可以直接从应用市场安装：
+
+### 安装步骤
+
+```bash
+# 1. 添加插件市场
+/plugin marketplace add codetodamoon/Vibe-coding-Cemetery
+
+# 2. 安装插件
+/plugin install bury-my-project@cemetery
+
+# 3. 重启 Claude Code
+```
+
+### 使用方法
+
+安装完成后，直接告诉 Claude：
 
 ```
 /bury-my-project https://github.com/your-username/failed-repo
 ```
 
-Claude 会自动分析你的项目、判断死因、生成墓碑内容并提交 Issue。
+Claude 会自动：
+1. 克隆并分析你的仓库
+2. 判断死因（胎死腹中 / 美丽废物 / 智障 AI / 商业幻觉）
+3. 生成墓碑内容并展示给你确认
+4. 提交 Issue 到本仓库
+
+> 💡 **提示：** 你也可以在 Claude Code 的任意对话中直接触发此命令，无需切换到本仓库目录。
